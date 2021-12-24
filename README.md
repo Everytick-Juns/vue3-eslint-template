@@ -46,3 +46,24 @@ a# Vue 문법
 
 ```
 
+## Vue computed caching
+- 동일한 결과의 함수를 반복할 필요 없이 computed 된 데이터를 사용하면 됨.
+- computed 값은 readonly!
+
+
+## vue getter/setter
+- readonly인 computed값은 Getter!
+- data값은 둘의 기능 모두 가능.
+
+```vue
+computed: {
+  reversedMessage: {
+    get() {
+      return this.msg.split('').reverse().join('')
+    },
+    set(value) {
+      this.msg = value
+    }
+  }
+}
+```
