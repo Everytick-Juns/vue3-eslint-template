@@ -1,40 +1,25 @@
 <template>
-  <button @click="add">
-    ADD
-  </button>
-  <h1>{{ reversedMessage }}</h1>
-  <h1>{{ reversedMessage }}</h1>
-  <h1>{{ reversedMessage }}</h1>
-  <h1>{{ reversedMessage }}</h1>
+  <Hello ref="hello" />
 </template>
 
 <script>
-export default{
-  data(){
-    return {
-      // Getter, Setter
-      msg: 'Hello Computed!'
-    }
-  },
-  computed:{
-    //Getter
-    // reversedMessage(){
-    //   return this.msg.split('').reverse().join('')
-    // }
-    reversedMessage: {
-      get() {
-        return this.msg.split('').reverse().join('')
+import Hello from '~/components/Hello'
+export default {
+    components: {
+      Hello
     },
-      set(value) {
-        // this.msg = value
-        console.log(value)
-      }                
+    data() {
+        return {
+            message: "Hello World"
+        }
+    },
+    mounted() {
+        console.log(this.$refs.hello.$refs.good)
     }
-  },
-  methods: {
-    add() {
-      this.reversedMessage += '!?'
-    }
-  }
+
 }
 </script>
+
+<style lang="scss" scoped>
+
+</style>
